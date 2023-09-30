@@ -19,7 +19,7 @@ By Irma Adams
 
 public class Main {
     public static void main(String[] args) {
-        
 
+        EncryptionProgram secretMessage = new EncryptionProgram();
     }
 }
