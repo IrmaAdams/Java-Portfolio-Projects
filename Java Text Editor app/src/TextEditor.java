@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class TextEditor extends JFrame implements ActionListener {
 
+    // Global variables declared:
     JTextArea textArea;
     JScrollPane scrollPane;
     JLabel fontLabel;
@@ -25,21 +26,27 @@ public class TextEditor extends JFrame implements ActionListener {
     JMenuItem saveItem;
     JMenuItem exitItem;
 
+    // Constructor:
     TextEditor() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Text Editor");
-        this.setSize(500, 500);
-        this.setLayout(new FlowLayout());
-        this.setLocationRelativeTo(null);
 
-        textArea = new JTextArea();
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        textArea.setFont(new Font("Ariel", Font.PLAIN, 20));
+        // Create Frame:
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        // close out program when clicking on x
+        this.setTitle("Text Editor");                               // set title for the frame
+        this.setSize(800, 800);                         // set size for frame
+        this.setLayout(new FlowLayout());                           // set flow layout
+        this.setLocationRelativeTo(null);                           // for setting location of frame to center of screen
 
-        scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(450, 450));
-        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        // Create a text area to the frame:
+        textArea = new JTextArea();                                         // instantiate
+        textArea.setLineWrap(true);                                         // to keep text within text area
+        textArea.setWrapStyleWord(true);                                    // lines will be wrapped at word boundaries
+        textArea.setFont(new Font("Ariel", Font.PLAIN, 20));     // set default font style, type and size
+
+        // Create a scroll pane that contains a scroll bar:
+        // add the text area to the scroll pane, and the scroll pane to the frame
+        scrollPane = new JScrollPane(textArea);                                                 // instantiate
+        scrollPane.setPreferredSize(new Dimension(450, 450));                       //
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);   //
 
         fontLabel = new JLabel("Font: ");
 
@@ -87,7 +94,7 @@ public class TextEditor extends JFrame implements ActionListener {
         this.add(fontColourButton);
         this.add(fontBox);
         this.add(scrollPane);
-        this.setVisible(true);
+        this.setVisible(true);                                  // set visibility to true
     }
 
     @Override
